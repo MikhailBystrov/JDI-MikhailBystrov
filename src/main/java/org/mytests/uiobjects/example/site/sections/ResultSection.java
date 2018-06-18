@@ -20,6 +20,8 @@ import static org.mytests.uiobjects.example.enums.Vegetables.TOMATO;
  */
 public class ResultSection extends Section {
 
+    // TODO read IDEA warnings
+    // TODO i assume that all of this locators can be improved...
     @FindBy(css = ".results .summ-res")
     public Text summaryResult;
 

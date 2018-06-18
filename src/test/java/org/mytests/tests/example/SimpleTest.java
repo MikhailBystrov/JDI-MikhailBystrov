@@ -15,6 +15,8 @@ public class SimpleTest extends SimpleTestsInit {
         //1. Login on JDI site as User
         login();
 
+        // TODO it will be better to create ONE parametrised method that allow us
+        // TODO to open any pages of application, instead of method for each page
         //2. Open Metals & Colors page by Header menu
         homePage.headerSection.goToMetalsColors();
 
@@ -24,6 +26,8 @@ public class SimpleTest extends SimpleTestsInit {
         //  Colors: Red
         //  Metals: Selen
         //  Vegetables: Cucumber,Tomato
+        // TODO i don't get it, where is Entity Driving Testing approach ?
+        // TODO this methods should be parametrised, flicked through 8 hw
         metalsColorsPage.summaryResult();
 
         //4. Result section contains certain data
@@ -33,5 +37,6 @@ public class SimpleTest extends SimpleTestsInit {
         //  Metal: Selen
         //  Vegetables: Cucumber, Tomato
         metalsColorsPage.resultSection.checkResultLines();
+        // !TODO
     }
 }
