@@ -10,6 +10,7 @@ import org.mytests.uiobjects.example.site.forms.LoginForm;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.allure.annotations.Step;
 
+@SuppressWarnings("WeakerAccess")
 @JSite("https://epam.github.io/JDI/")
 public class JDIExampleSite extends WebSite {
     public static HomePage homePage;
@@ -21,8 +22,8 @@ public class JDIExampleSite extends WebSite {
     public static Label profilePhoto;
 
     @Step("Login at the site")
-    public static void login() {
+    public static void login(User user) {
         profilePhoto.click();
-        loginForm.loginAs(new User());
+        loginForm.loginAs(user);
     }
 }

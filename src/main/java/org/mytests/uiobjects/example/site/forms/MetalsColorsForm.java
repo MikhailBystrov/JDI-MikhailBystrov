@@ -8,21 +8,19 @@ import com.epam.jdi.uitests.web.selenium.elements.composite.Form;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.JFindBy;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.objects.JDropdown;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.simple.Css;
+import org.mytests.uiobjects.example.entities.MetalsColorsData;
 import org.mytests.uiobjects.example.enums.Nature;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.allure.annotations.Description;
 import ru.yandex.qatools.allure.annotations.Step;
 
-import static org.mytests.uiobjects.example.enums.Colors.RED;
-import static org.mytests.uiobjects.example.enums.Metals.SELEN;
-import static org.mytests.uiobjects.example.enums.Nature.FIRE;
-import static org.mytests.uiobjects.example.enums.Nature.WATER;
-import static org.mytests.uiobjects.example.enums.Vegetables.CUCUMBER;
 import static org.mytests.uiobjects.example.enums.Vegetables.DEFAULT_VEGETABLE;
-import static org.mytests.uiobjects.example.enums.Vegetables.TOMATO;
 
 /**
  * Created by Mikhail on 17.06.2018
  */
+
+@Description("'Metals and colors' page form")
 public class MetalsColorsForm extends Form {
 
     @Css(".vertical-group label")
@@ -46,13 +44,15 @@ public class MetalsColorsForm extends Form {
     @FindBy(css = "#submit-button")
     private Button submit;
 
+    @SuppressWarnings("unchecked")
     @Step("Submit entered data")
-    public void submit() {
-        elements.check(WATER.value, FIRE.value);
-        color.select(RED.value);
-        metals.setValue(SELEN.value);
+    public void submit(MetalsColorsData data) {
+        elements.check(data.getElements());
+        color.select(data.getColor().value);
+        metals.setValue(data.getMetal().value);
         vegetablesButton.click();
-        vegetables.select(DEFAULT_VEGETABLE.value, TOMATO.value, CUCUMBER.value);
+        vegetables.select(DEFAULT_VEGETABLE.value);
+        vegetables.check(data.getVegetables());
         submit.click();
     }
 }
