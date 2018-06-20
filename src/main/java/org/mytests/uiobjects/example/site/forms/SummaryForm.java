@@ -27,6 +27,5 @@ public class SummaryForm extends Form {
     public void calculate(MetalsColorsData data) {
         odds.select(data.getOdds());
         even.select(data.getEven());
-        calculate.click();
     }
 }
