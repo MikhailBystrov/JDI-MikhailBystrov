@@ -15,7 +15,9 @@ import static org.mytests.uiobjects.example.site.JDIExampleSite.metalsColorsPage
 public class SimpleTest extends SimpleTestsInit {
 
     @Test
-    public void loginTest() throws InterruptedException {
+    public void loginTest() {
+        //Open home page
+        homePage.open();
         //1. Login on JDI site as User
         login(new User("epam", "1234", "PITER CHAILOVSKI"));
 
