@@ -5,7 +5,6 @@ import com.epam.jdi.uitests.web.selenium.elements.complex.Menu;
 import com.epam.jdi.uitests.web.selenium.elements.composite.Section;
 import org.mytests.uiobjects.example.entities.User;
 import org.mytests.uiobjects.example.enums.MenuButtons;
-import org.mytests.uiobjects.example.enums.ServiceButtons;
 import org.mytests.uiobjects.example.site.forms.LoginForm;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.allure.annotations.Description;
@@ -31,7 +30,7 @@ public class HeaderSection extends Section {
     private Menu<MenuButtons> headerMenu;
 
     @FindBy(css = ".m-l8 .dropdown-menu a")
-    private Menu<ServiceButtons> serviceHeaderMenu;
+    private Menu<MenuButtons> serviceHeaderMenu;
 
 
     @Step("Login at the site")
@@ -39,21 +38,11 @@ public class HeaderSection extends Section {
         profilePhoto.click();
         loginForm.loginAs(data);
     }
-
-    @Step("Follow the link in the header menu")
-    public void goToMetalsColors() {
-        metalsColors.click();
-    }
-
     @Step
-    public void selectHeaderMenu(MenuButtons menuButtons) {
-        headerMenu.select(menuButtons.value);
-    }
-
-    @Step
-    public void selectServiceHeaderMenu(ServiceButtons serviceButtons) {
-        if (headerMenu.isDisplayed(MenuButtons.SERVICE.value)) {
-            serviceHeaderMenu.select(serviceButtons.value);
+    public void selectHeaderMenu(MenuButtons ... menuButtons) {
+        headerMenu.select(menuButtons[0]);
+        if(serviceHeaderMenu.isDisplayed()) {
+            serviceHeaderMenu.select(menuButtons[1]);
         }
     }
 }
