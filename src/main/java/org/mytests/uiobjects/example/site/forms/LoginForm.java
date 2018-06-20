@@ -12,11 +12,11 @@ import ru.yandex.qatools.allure.annotations.Description;
 public class LoginForm extends Form<User> {
 
     @FindBy(id = "Name")
-    public TextField login;
+    public TextField name;
 
     @FindBy(id = "Password")
     public TextField password;
 
     @Css("[type=submit]")
-    public Button enter;
+    public Button submit;
 }
