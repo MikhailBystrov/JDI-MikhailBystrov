@@ -13,7 +13,7 @@ import ru.yandex.qatools.allure.annotations.Step;
  */
 @SuppressWarnings("unchecked")
 @Description("'Metals and colors' page summary form")
-public class SummaryForm extends Form {
+public class SummForm extends Form {
     @FindBy(css = "#odds-selector p")
     private RadioButtons odds;
 
