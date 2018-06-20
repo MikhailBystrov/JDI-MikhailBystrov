@@ -1,5 +1,8 @@
 package org.mytests.uiobjects.example.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.mytests.uiobjects.example.enums.Colors;
 import org.mytests.uiobjects.example.enums.Metals;
 import org.mytests.uiobjects.example.enums.Nature;
@@ -16,43 +19,18 @@ import static org.mytests.uiobjects.example.enums.Vegetables.TOMATO;
 /**
  * Created by Mikhail on 19.06.2018
  */
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
 @SuppressWarnings("WeakerAccess")
 @Description("Results of 'metals and colors' page form submit")
 public class MetalsColorsResult {
     public static MetalsColorsResult RESULT_DATA = new MetalsColorsResult(11, new Nature[]{WATER, FIRE}
             , RED, SELEN, new Vegetables[]{CUCUMBER, TOMATO});
+
     private int summary;
     private Nature[] elements;
     private Colors color;
     private Metals metal;
     private Vegetables[] vegetables;
-
-    public MetalsColorsResult(int summary, Nature[] elements, Colors color, Metals metal
-            , Vegetables[] vegetables) {
-        this.summary = summary;
-        this.elements = elements;
-        this.color = color;
-        this.metal = metal;
-        this.vegetables = vegetables;
-    }
-
-    public int getSummary() {
-        return summary;
-    }
-
-    public Nature[] getElements() {
-        return elements;
-    }
-
-    public Colors getColor() {
-        return color;
-    }
-
-    public Metals getMetal() {
-        return metal;
-    }
-
-    public Vegetables[] getVegetables() {
-        return vegetables;
-    }
 }

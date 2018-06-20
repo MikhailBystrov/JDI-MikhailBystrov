@@ -1,19 +1,16 @@
 package org.mytests.uiobjects.example.entities;
 
-import com.epam.commons.DataClass;
+import lombok.AllArgsConstructor;
 import ru.yandex.qatools.allure.annotations.Description;
 
+@AllArgsConstructor
 @SuppressWarnings("ALL")
 @Description("User data")
-public class User extends DataClass {
-    public static User piterChailovski = new User ("epam", "1234", "PITER_CHAILOVSKI");
-    public String login;
-    public String password;
-    public String name;
+public class User {
+    public static User PITER_CHAILOVSKI = new User ("epam", "1234", "PITER_CHAILOVSKI");
 
-    public User(String login, String password, String name) {
-        this.login = login;
-        this.password = password;
-        this.name = name;
-    }
+    public String name;
+    public String password;
+    private String fullName;
+
 }
