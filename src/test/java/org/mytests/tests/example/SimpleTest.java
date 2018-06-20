@@ -1,11 +1,11 @@
 package org.mytests.tests.example;
 
-import org.mytests.uiobjects.example.entities.User;
 import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Description;
 
 import static org.mytests.uiobjects.example.entities.MetalsColorsData.INITIAL_DATA;
 import static org.mytests.uiobjects.example.entities.MetalsColorsResult.RESULT_DATA;
+import static org.mytests.uiobjects.example.entities.User.piterChailovski;
 import static org.mytests.uiobjects.example.enums.MenuButtons.METALS_AND_COLORS;
 import static org.mytests.uiobjects.example.site.JDIExampleSite.homePage;
 import static org.mytests.uiobjects.example.site.JDIExampleSite.login;
@@ -19,7 +19,7 @@ public class SimpleTest extends SimpleTestsInit {
         //Open home page
         homePage.open();
         //1. Login on JDI site as User
-        login(new User("epam", "1234", "PITER CHAILOVSKI"));
+        login(piterChailovski);
 
         //2. Open Metals & Colors page by Header menu
         homePage.headerSection.selectHeaderMenu(METALS_AND_COLORS);
