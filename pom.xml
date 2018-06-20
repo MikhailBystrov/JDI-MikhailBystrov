@@ -22,7 +22,7 @@
             <artifactId>jdi-uitest-web</artifactId>
             <version>LATEST</version>
         </dependency>
-		
+        
         <!--Allure-->
         <dependency>
             <groupId>ru.yandex.qatools.allure</groupId>
