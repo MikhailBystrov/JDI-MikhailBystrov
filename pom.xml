@@ -13,16 +13,24 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <aspectj.version>1.8.5</aspectj.version>
         <driver>chrome</driver>
+        <driver.path>C:\\Users\\Mikhail\\Desktop\\EPAM Systems\\Automation Testing\\JDI-homework</driver.path>
     </properties>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.20</version>
+        </dependency>
+
         <!--JDI-->
         <dependency>
             <groupId>com.epam.jdi</groupId>
             <artifactId>jdi-uitest-web</artifactId>
             <version>LATEST</version>
         </dependency>
-        
+
         <!--Allure-->
         <dependency>
             <groupId>ru.yandex.qatools.allure</groupId>
@@ -82,12 +90,12 @@
             </plugin>
         </plugins>
         <!-- For using properties from pom -->
-        <resources>
-            <resource>
+        <testResources>
+            <testResource>
                 <directory>src/test/resources</directory>
                 <filtering>true</filtering>
-            </resource>
-        </resources>
+            </testResource>
+        </testResources>
     </build>
 
     <!-- Allure reporting -->
