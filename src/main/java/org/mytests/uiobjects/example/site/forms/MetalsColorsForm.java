@@ -48,10 +48,10 @@ public class MetalsColorsForm extends Form {
     @Step("Submit entered data")
     public void submit(MetalsColorsData data) {
         elements.check(data.getElements());
-        color.select(data.getColor().value);
+        color.select(data.getColor());
         metals.setValue(data.getMetal().value);
         vegetablesButton.click();
-        vegetables.select(DEFAULT_VEGETABLE.value);
+        vegetables.select(DEFAULT_VEGETABLE);
         vegetables.check(data.getVegetables());
         submit.click();
     }
