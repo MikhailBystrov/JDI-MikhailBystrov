@@ -17,7 +17,6 @@ import java.util.Formatter;
 @Description("Results of 'metals and colors' page section")
 public class ResultSection extends Section {
 
-    Formatter formatter;
     @FindBy(css = ".summ-res")
     private Text summaryResult;
 
@@ -36,11 +35,13 @@ public class ResultSection extends Section {
     @Step
     public void checkResultLines(MetalsColorsResult resultData) {
         summaryResult.shouldHave(Condition.text("Summary: " + resultData.getSummary()));
-        elementsResult.shouldHave(Condition.text("Elements: " + resultData.getElements()[0] + ", "
-                + resultData.getElements()[1]));
-        colorResult.shouldHave(Condition.text("Color: " + resultData.getColor().value));
-        metalResult.shouldHave(Condition.text("Metal: " + resultData.getMetal().value));
-        vegetablesResult.shouldHave(Condition.text("Vegetables: " + resultData.getVegetables()[0] + ", "
-                + resultData.getVegetables()[1]));
+        elementsResult.shouldHave(Condition.text(String.format("Elements: %s, %s",
+                resultData.getElements()[0],
+                resultData.getElements()[1])));
+        colorResult.shouldHave(Condition.text("Color: " + resultData.getColor()));
+        metalResult.shouldHave(Condition.text("Metal: " + resultData.getMetal()));
+        vegetablesResult.shouldHave(Condition.text(String.format("Vegetables: %s, %s",
+                resultData.getVegetables()[0],
+                resultData.getVegetables()[1])));
     }
 }
