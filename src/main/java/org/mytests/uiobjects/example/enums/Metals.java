@@ -14,4 +14,9 @@ public enum Metals {
     Metals(String text) {
         this.value = text;
     }
+
+    @Override
+    public String toString() {
+        return value;
+    }
 }
