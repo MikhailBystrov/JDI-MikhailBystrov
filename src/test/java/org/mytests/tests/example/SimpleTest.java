@@ -1,8 +1,12 @@
 package org.mytests.tests.example;
 
+import org.mytests.uiobjects.example.entities.User;
 import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Description;
 
+import static org.mytests.uiobjects.example.entities.MetalsColorsData.INITIAL_DATA;
+import static org.mytests.uiobjects.example.entities.MetalsColorsResult.RESULT_DATA;
+import static org.mytests.uiobjects.example.enums.MenuButtons.METALS_AND_COLORS;
 import static org.mytests.uiobjects.example.site.JDIExampleSite.homePage;
 import static org.mytests.uiobjects.example.site.JDIExampleSite.login;
 import static org.mytests.uiobjects.example.site.JDIExampleSite.metalsColorsPage;
@@ -11,14 +15,14 @@ import static org.mytests.uiobjects.example.site.JDIExampleSite.metalsColorsPage
 public class SimpleTest extends SimpleTestsInit {
 
     @Test
-    public void loginTest() throws InterruptedException {
+    public void loginTest() {
+        //Open home page
+        homePage.open();
         //1. Login on JDI site as User
-        login();
+        login(new User("epam", "1234", "PITER CHAILOVSKI"));
 
-        // TODO it will be better to create ONE parametrised method that allow us
-        // TODO to open any pages of application, instead of method for each page
         //2. Open Metals & Colors page by Header menu
-        homePage.headerSection.goToMetalsColors();
+        homePage.headerSection.selectHeaderMenu(METALS_AND_COLORS);
 
         //3. Fill form Metals & Colors by data below:
         //  Summary: 3, 8
@@ -26,9 +30,7 @@ public class SimpleTest extends SimpleTestsInit {
         //  Colors: Red
         //  Metals: Selen
         //  Vegetables: Cucumber,Tomato
-        // TODO i don't get it, where is Entity Driving Testing approach ?
-        // TODO this methods should be parametrised, flicked through 8 hw
-        metalsColorsPage.summaryResult();
+        metalsColorsPage.submitForms(INITIAL_DATA);
 
         //4. Result section contains certain data
         //  Summary: 11
@@ -36,7 +38,6 @@ public class SimpleTest extends SimpleTestsInit {
         //  Color: Red
         //  Metal: Selen
         //  Vegetables: Cucumber, Tomato
-        metalsColorsPage.resultSection.checkResultLines();
-        // !TODO
+        metalsColorsPage.resultSection.checkResultLines(RESULT_DATA);
     }
 }

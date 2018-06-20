@@ -6,13 +6,12 @@ import org.mytests.uiobjects.example.site.JDIExampleSite;
 import org.testng.annotations.BeforeSuite;
 
 import static com.epam.jdi.uitests.core.settings.JDISettings.logger;
-import static org.mytests.uiobjects.example.site.JDIExampleSite.homePage;
 
+@SuppressWarnings("unchecked")
 public class SimpleTestsInit extends TestNGBase {
     @BeforeSuite(alwaysRun = true)
     public static void setUp() {
         WebSite.init(JDIExampleSite.class);
         logger.info("Run Tests");
-        homePage.open();
     }
 }
