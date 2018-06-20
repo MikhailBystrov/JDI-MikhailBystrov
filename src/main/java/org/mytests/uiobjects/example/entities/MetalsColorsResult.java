@@ -19,14 +19,13 @@ import static org.mytests.uiobjects.example.enums.Vegetables.TOMATO;
 @SuppressWarnings("WeakerAccess")
 @Description("Results of 'metals and colors' page form submit")
 public class MetalsColorsResult {
+    public static MetalsColorsResult RESULT_DATA = new MetalsColorsResult(11, new Nature[]{WATER, FIRE}
+            , RED, SELEN, new Vegetables[]{CUCUMBER, TOMATO});
     private int summary;
     private Nature[] elements;
     private Colors color;
     private Metals metal;
     private Vegetables[] vegetables;
-
-    public static MetalsColorsResult RESULT_DATA = new MetalsColorsResult(11, new Nature[]{WATER, FIRE}
-            , RED, SELEN, new Vegetables[]{CUCUMBER, TOMATO});
 
     public MetalsColorsResult(int summary, Nature[] elements, Colors color, Metals metal
             , Vegetables[] vegetables) {

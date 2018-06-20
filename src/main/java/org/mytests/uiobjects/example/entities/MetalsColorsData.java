@@ -23,15 +23,14 @@ import static org.mytests.uiobjects.example.enums.Vegetables.TOMATO;
 @SuppressWarnings("WeakerAccess")
 @Description("Data for fill 'metals and colors' page form")
 public class MetalsColorsData {
+    public static MetalsColorsData INITIAL_DATA = new MetalsColorsData(THREE, EIGHT, new Nature[]{WATER, FIRE}
+            , RED, SELEN, new Vegetables[]{CUCUMBER, TOMATO});
     private Odds odds;
     private Even even;
     private Nature[] elements;
     private Colors color;
     private Metals metal;
     private Vegetables[] vegetables;
-
-    public static MetalsColorsData INITIAL_DATA = new MetalsColorsData(THREE, EIGHT, new Nature[]{WATER, FIRE}
-            , RED, SELEN, new Vegetables[]{CUCUMBER, TOMATO});
 
     public MetalsColorsData(Odds odds, Even even, Nature[] elements, Colors color, Metals metal
             , Vegetables[] vegetables) {

@@ -34,7 +34,6 @@ public class HeaderSection extends Section {
     private Menu<ServiceButtons> serviceHeaderMenu;
 
 
-
     @Step("Login at the site")
     public void login(User data) {
         profilePhoto.click();
@@ -52,8 +51,8 @@ public class HeaderSection extends Section {
     }
 
     @Step
-    public void selectServiceHeaderMenu (ServiceButtons serviceButtons) {
-        if(headerMenu.isDisplayed(MenuButtons.SERVICE.value)) {
+    public void selectServiceHeaderMenu(ServiceButtons serviceButtons) {
+        if (headerMenu.isDisplayed(MenuButtons.SERVICE.value)) {
             serviceHeaderMenu.select(serviceButtons.value);
         }
     }
