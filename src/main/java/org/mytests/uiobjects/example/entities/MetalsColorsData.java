@@ -26,11 +26,10 @@ import static org.mytests.uiobjects.example.enums.Vegetables.TOMATO;
 @SuppressWarnings("WeakerAccess")
 @Description("Data for fill 'metals and colors' page form")
 public class MetalsColorsData {
-    public static MetalsColorsData INITIAL_DATA = new MetalsColorsData(3, 8, new Nature[]{WATER, FIRE}
+    public static MetalsColorsData INITIAL_DATA = new MetalsColorsData(new int[]{3, 8}, new Nature[]{WATER, FIRE}
             , RED, SELEN, new Vegetables[]{CUCUMBER, TOMATO});
 
-    private int odds;
-    private int even;
+    private int[] numbers;
     @Getter
     private Nature[] elements;
     @Getter
@@ -41,10 +40,20 @@ public class MetalsColorsData {
     private Vegetables[] vegetables;
 
     public String getOdds() {
-        return String.valueOf(odds);
+        return String.valueOf(numbers[0]);
     }
 
     public String getEven() {
-        return String.valueOf(even);
+        return String.valueOf(numbers[1]);
+    }
+
+    @Override
+    public String toString() {
+        return "summary: " + numbers +
+                ", elements: " + elements
+                + ", color: " + color
+                + ", metals: " + metal
+                + ", vegetables: " + vegetables
+                + '}';
     }
 }
