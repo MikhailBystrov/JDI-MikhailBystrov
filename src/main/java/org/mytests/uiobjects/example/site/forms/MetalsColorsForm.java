@@ -49,7 +49,7 @@ public class MetalsColorsForm extends Form {
     public void submit(MetalsColorsData data) {
         elements.check(data.getElements());
         color.select(data.getColor());
-        metals.setValue(data.getMetal().value);
+        metals.setValue(data.getMetals());
         vegetablesButton.click();
         vegetables.select(DEFAULT_VEGETABLE);
         vegetables.check(data.getVegetables());
