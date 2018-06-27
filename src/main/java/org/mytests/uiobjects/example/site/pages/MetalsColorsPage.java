@@ -23,6 +23,7 @@ public class MetalsColorsPage extends CommonPage {
 
     @Step("Submit selected radios")
     public void submitForms(MetalsColorsData data) {
+        // TODO
         summForm.calculate(data);
         metalsColorsForm.submit(data);
     }

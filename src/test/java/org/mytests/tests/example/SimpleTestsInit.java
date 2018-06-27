@@ -17,6 +17,7 @@ public class SimpleTestsInit extends TestNGBase {
         logger.info("Run Tests");
 //        JDIFrameworkSite.indexPage.open();
     }
+
     @AfterMethod(alwaysRun = true)
     public void refreshPage() {
         JDIExampleSite.metalsColorsPage.headerSection.logout();

@@ -19,7 +19,7 @@ import static org.mytests.uiobjects.example.enums.Vegetables.DEFAULT_VEGETABLE;
 /**
  * Created by Mikhail on 17.06.2018
  */
-
+// TODO
 @Description("'Metals and colors' page form")
 public class MetalsColorsForm extends Form {
 
@@ -35,11 +35,13 @@ public class MetalsColorsForm extends Form {
     @FindBy(css = "[type='text']")
     private TextField metals;
 
+    // TODO
     @FindBy(css = ".salad button")
     private Button vegetablesButton;
 
     @FindBy(css = ".salad label")
     private CheckList vegetables;
+    // !TODO
 
     @FindBy(css = "#submit-button")
     private Button submit;
@@ -50,6 +52,7 @@ public class MetalsColorsForm extends Form {
         elements.check(data.getElements());
         color.select(data.getColor());
         metals.setValue(data.getMetals());
+        // TODO
         vegetablesButton.click();
         vegetables.select(DEFAULT_VEGETABLE);
         vegetables.check(data.getVegetables());
