@@ -15,12 +15,14 @@ import java.util.Map;
  * Created by Mikhail on 25.06.2018
  */
 public class Reader {
+    // TODO what if the reason of this field ? Local variable is not enough ?
     private static Map<String, MetalsColorsData> dataMap = null;
     private static File file = new File("src\\test\\resources\\JDI_ex8_metalsColorsDataSet.json");
 
     public static Map<String, MetalsColorsData> readFile() {
         try (JsonReader jsonReader = new JsonReader(new FileReader(file))) {
-            Type token = new TypeToken<Map<String, MetalsColorsData>>() {{}}.getType();
+            Type token = new TypeToken<Map<String, MetalsColorsData>>() {{
+            }}.getType();
             dataMap = new Gson().fromJson(jsonReader, token);
         } catch (IOException e) {
             e.printStackTrace();

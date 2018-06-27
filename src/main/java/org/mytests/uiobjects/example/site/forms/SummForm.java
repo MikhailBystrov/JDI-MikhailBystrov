@@ -23,6 +23,9 @@ public class SummForm extends Form {
     @FindBy(css = "#calculate-button")
     private IButton calculate;
 
+    // TODO nope, that's wrong.
+    // TODO 1. this form should not get the whole data set, actually
+    // TODO 2. this method do not "calculate" anything
     @Step("Submit selected radios")
     public void calculate(MetalsColorsData data) {
         odds.select(data.getOdds());

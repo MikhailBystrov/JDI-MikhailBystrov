@@ -9,13 +9,12 @@ import java.util.Map;
 
 import static org.mytests.uiobjects.example.entities.User.PITER_CHAILOVSKI;
 import static org.mytests.uiobjects.example.enums.MenuButtons.METALS_AND_COLORS;
-import static org.mytests.uiobjects.example.site.JDIExampleSite.homePage;
-import static org.mytests.uiobjects.example.site.JDIExampleSite.login;
-import static org.mytests.uiobjects.example.site.JDIExampleSite.metalsColorsPage;
+import static org.mytests.uiobjects.example.site.JDIExampleSite.*;
 
 /**
  * Created by Mikhail on 23.06.2018
  */
+// TODO in a real project, you should not push comments like this...
 public class SimpleTestWithJson extends SimpleTestsInit {
 
 //    @DataProvider
@@ -38,7 +37,7 @@ public class SimpleTestWithJson extends SimpleTestsInit {
         return dataMap.values().toArray();
     }
 
-//    @Test(dataProvider = "getData")
+    //    @Test(dataProvider = "getData")
     @Test(dataProvider = "provider")
     public void loginTest(MetalsColorsData metalsColorsData) {
         //Open home page
