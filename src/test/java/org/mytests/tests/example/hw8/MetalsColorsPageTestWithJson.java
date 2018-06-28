@@ -1,5 +1,6 @@
-package org.mytests.tests.example;
+package org.mytests.tests.example.hw8;
 
+import org.mytests.tests.example.SimpleTestsInit;
 import org.mytests.uiobjects.example.Reader;
 import org.mytests.uiobjects.example.entities.MetalsColorsData;
 import org.testng.annotations.DataProvider;
@@ -15,21 +16,7 @@ import static org.mytests.uiobjects.example.site.JDIExampleSite.*;
  * Created by Mikhail on 23.06.2018
  */
 // TODO in a real project, you should not push comments like this...
-public class SimpleTestWithJson extends SimpleTestsInit {
-
-//    @DataProvider
-//    public Object[] getData() throws IOException {
-////        return DataForDataProvider.getList();
-////        return new Object[]{ new MetalsColorsData(
-////                new int[]{3, 8},
-////                new Nature[]{WATER, FIRE},
-////                RED,
-////                SELEN,
-////                new Vegetables[]{CUCUMBER, TOMATO})};
-//
-//        return Reader.readJson();
-//
-//    }
+public class MetalsColorsPageTestWithJson extends SimpleTestsInit {
 
     @DataProvider(name = "provider")
     public Object[] getDataFromJsonFile() {
@@ -37,7 +24,6 @@ public class SimpleTestWithJson extends SimpleTestsInit {
         return dataMap.values().toArray();
     }
 
-    //    @Test(dataProvider = "getData")
     @Test(dataProvider = "provider")
     public void loginTest(MetalsColorsData metalsColorsData) {
         //Open home page
@@ -62,6 +48,6 @@ public class SimpleTestWithJson extends SimpleTestsInit {
         //  Color: Red
         //  Metal: Selen
         //  Vegetables: Cucumber, Tomato
-        metalsColorsPage.resultSection.checkResultLinesJson(metalsColorsData);
+        metalsColorsPage.resultSection.checkResultLines(metalsColorsData);
     }
 }

@@ -15,7 +15,6 @@ public class SimpleTestsInit extends TestNGBase {
         System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         WebSite.init(JDIExampleSite.class);
         logger.info("Run Tests");
-//        JDIFrameworkSite.indexPage.open();
     }
 
     @AfterMethod(alwaysRun = true)

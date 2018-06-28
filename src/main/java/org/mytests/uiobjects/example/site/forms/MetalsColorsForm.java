@@ -10,6 +10,7 @@ import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.object
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.simple.Css;
 import org.mytests.uiobjects.example.entities.MetalsColorsData;
 import org.mytests.uiobjects.example.enums.Nature;
+import org.mytests.uiobjects.example.enums.Vegetables;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.allure.annotations.Description;
 import ru.yandex.qatools.allure.annotations.Step;
@@ -21,7 +22,9 @@ import static org.mytests.uiobjects.example.enums.Vegetables.DEFAULT_VEGETABLE;
  */
 // TODO
 @Description("'Metals and colors' page form")
-public class MetalsColorsForm extends Form {
+public class MetalsColorsForm extends Form<MetalsColorsData> {
+
+    private SummForm summForm;
 
     @Css(".vertical-group label")
     private CheckList<Nature> elements;
@@ -36,11 +39,10 @@ public class MetalsColorsForm extends Form {
     private TextField metals;
 
     // TODO
-    @FindBy(css = ".salad button")
-    private Button vegetablesButton;
-
-    @FindBy(css = ".salad label")
-    private CheckList vegetables;
+    @JDropdown(jroot = @JFindBy(css = ".dropdown.salad"),
+            jlist = @JFindBy(css = "li"),
+            jexpand = @JFindBy(css = ".caret"))
+    private Dropdown<Vegetables> vegetables;
     // !TODO
 
     @FindBy(css = "#submit-button")
@@ -49,13 +51,15 @@ public class MetalsColorsForm extends Form {
     @SuppressWarnings("unchecked")
     @Step("Submit entered data")
     public void submit(MetalsColorsData data) {
+        summForm.setNumbers(data);
         elements.check(data.getElements());
         color.select(data.getColor());
         metals.setValue(data.getMetals());
-        // TODO
-        vegetablesButton.click();
+        // TODO try to make vegetables as dropDown or smt
         vegetables.select(DEFAULT_VEGETABLE);
-        vegetables.check(data.getVegetables());
+        for (String vegetable : data.getVegetables()) {
+            vegetables.select(vegetable);
+        }
         submit.click();
     }
 }

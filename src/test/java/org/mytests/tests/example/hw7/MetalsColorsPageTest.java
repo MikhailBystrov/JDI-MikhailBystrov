@@ -1,10 +1,10 @@
-package org.mytests.tests.example;
+package org.mytests.tests.example.hw7;
 
+import org.mytests.tests.example.SimpleTestsInit;
 import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Description;
 
 import static org.mytests.uiobjects.example.entities.MetalsColorsData.INITIAL_DATA;
-import static org.mytests.uiobjects.example.entities.MetalsColorsResult.RESULT_DATA;
 import static org.mytests.uiobjects.example.entities.User.PITER_CHAILOVSKI;
 import static org.mytests.uiobjects.example.enums.MenuButtons.METALS_AND_COLORS;
 import static org.mytests.uiobjects.example.site.JDIExampleSite.homePage;
@@ -12,7 +12,7 @@ import static org.mytests.uiobjects.example.site.JDIExampleSite.login;
 import static org.mytests.uiobjects.example.site.JDIExampleSite.metalsColorsPage;
 
 @Description("Checking 'metals & colors' page elements")
-public class SimpleTest extends SimpleTestsInit {
+public class MetalsColorsPageTest extends SimpleTestsInit {
 
     @Test
     public void loginTest() {
@@ -38,6 +38,6 @@ public class SimpleTest extends SimpleTestsInit {
         //  Color: Red
         //  Metal: Selen
         //  Vegetables: Cucumber, Tomato
-        metalsColorsPage.resultSection.checkResultLines(RESULT_DATA);
+        metalsColorsPage.resultSection.checkResultLines(INITIAL_DATA);
     }
 }

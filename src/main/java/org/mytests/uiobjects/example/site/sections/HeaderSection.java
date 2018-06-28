@@ -36,7 +36,6 @@ public class HeaderSection extends Section {
     @FindBy(css = ".m-l8 .dropdown-menu a")
     private Menu<MenuButtons> serviceHeaderMenu;
 
-
     @Step("Login at the site")
     public void login(User data) {
         profilePhoto.click();

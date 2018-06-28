@@ -13,21 +13,21 @@ import ru.yandex.qatools.allure.annotations.Step;
  */
 @SuppressWarnings("unchecked")
 @Description("'Metals and colors' page summary form")
-public class SummForm extends Form {
+public class SummForm extends Form<MetalsColorsData> {
     @FindBy(css = "#odds-selector p")
     private RadioButtons odds;
 
     @FindBy(css = "#even-selector p")
     private RadioButtons even;
 
-    @FindBy(css = "#calculate-button")
+    @FindBy(css = "#setNumbers-button")
     private IButton calculate;
 
     // TODO nope, that's wrong.
     // TODO 1. this form should not get the whole data set, actually
     // TODO 2. this method do not "calculate" anything
     @Step("Submit selected radios")
-    public void calculate(MetalsColorsData data) {
+    public void setNumbers(MetalsColorsData data) {
         odds.select(data.getOdds());
         even.select(data.getEven());
     }
